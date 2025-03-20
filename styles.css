@@ -5,6 +5,9 @@
 body{
     background-color: rgb(81,138,88);
 }
+#headers button{
+    margin-left: 330px;
+}
 .session{
     padding: 10px 10px 25px 100px;
 }
@@ -21,7 +24,7 @@ body{
 body .timer{
     background-color: rgba(255, 255, 255, 0.1);
 }
-.start{
+#start{
     border-color: white;
     background-color: white;
     color: green;
@@ -32,7 +35,24 @@ body .timer{
     margin-bottom: 25px;
     font-size: 20px
 }
-.time{
+#time{
     margin-left: 125px;
     font-size: 100px;
+}
+#settings{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: medium
+}
+dialog span{
+    color: black;
+}
+#settings-close{
+    color: black;
+}
+label{
+    color: gray;
+}
+td input{
+    color: black;
 }
