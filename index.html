@@ -14,38 +14,41 @@
         </div>
         
         <dialog id="settings-dialog">
+            <div><button id="settings-close" class="x-button"><img src="./close-button.jpg" alt="close settings"></button></div>
             <span>Timer(in min.)</span>
             <table>
                 <tr>
                     <td><label for="pomodoro-length">Pomodoro</label></td>
-                    <td><input type="number" id="pomodoro-length"></td>
+                    <td><input type="number" id="pomodoro-length" placeholder="25"></td>
                 </tr>
                 <tr>
                     <td><label for="short-break-length">Short Break</label></td>
-                    <td><input type="number" id="short-break-length"></td>
+                    <td><input type="number" id="short-break-length" placeholder="5"></td>
                 </tr>
                 <tr>
                     <td><label for="long-break-length">Long Break</label></td>
-                    <td><input type="number" id="long-break-length"></td>
+                    <td><input type="number" id="long-break-length" placeholder="15"></td>
                 </tr>
                 <tr>
                     <td><label for="long-break-count">Long Break Interval</label></td>
-                    <td><input type="number" id="long-break-count"></td>
+                    <td><input type="number" id="long-break-count" placeholder="5"></td>
                 </tr>
             </table>
-          
-            <button id="settings-close">close</button>
         </dialog>
         <hr>
         <div class="timer">
             <div class="session">
-                <button type="button" class="session_type">Pomodoro</button><button type="button" class="session_type">Short Break</button><button type="button" class="session_type">Long Break</button>
+                <button type="button" class="session_type" id="pomodoro-session">Pomodoro</button><button type="button" class="session_type" id="short-break-session">Short Break</button><button type="button" class="session_type" id="long-break-session">Long Break</button>
             </div>
-            <span id="time">30:00</span> 
+            <span id="time">25:00</span> 
             <button type="button" id="start">START</button>
         </div>
     </div>
+    <div>
+        <span id="session-message">Time to focus!</span>
+    </div>
     <script src="settings.js"></script>
     <script src="timer.js"></script>
+    <script src="sessions.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
     color: white;
 }
 body{
-    background-color: rgb(81,138,88);
+    background-color: #3A5BDC;
 }
 #headers button{
     margin-left: 330px;
@@ -49,10 +49,21 @@ dialog span{
 }
 #settings-close{
     color: black;
+    margin-left: 265px;
+    margin-top: 0.1px;
 }
 label{
     color: gray;
 }
 td input{
     color: black;
+}
+#session-message{
+    margin-left: 675px;
+    font-size: large;
+}
+img{
+    width: 15px;
+    height: 15px;
+    align-self: center;
 }

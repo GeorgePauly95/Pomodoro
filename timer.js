@@ -1,7 +1,3 @@
-// var session_duration = document.getElementById("time").innerText;
-// var minutes_duration = session_duration.split(":")[0]
-// var seconds_duration = session_duration.split(":")[1]
-
 document.getElementById("start").addEventListener("click", count_down, {once: true});
 
 function count_down(){
@@ -30,7 +26,7 @@ function count_down(){
             minutes_duration = "0" + minutes_duration
         }
         document.getElementById("time").innerText = `${minutes_duration}:${seconds_duration}`;
-        document.getElementsByTagName("title")[0].innerText = `${minutes_duration}:${seconds_duration} - Time to Focus!`;
+        document.getElementsByTagName("title")[0].innerText = `${minutes_duration}:${seconds_duration} - ${document.getElementById("session-message").innerText}`;
         if (minutes_duration <= 0 && seconds_duration == 0){
             clearInterval(interval)
         }
