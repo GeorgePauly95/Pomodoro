@@ -1,68 +1,89 @@
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
-body{
+
+body {
     background-color: #3A5BDC;
 }
-#headers button{
-    margin-left: 330px;
+
+h1 {
+    font-size: medium;
+    display: inline-block;
 }
-.session{
+
+#settings {
+    font-size: medium;
+    display: inline-block;
+    margin-left: 320px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.session {
     padding: 10px 10px 25px 100px;
 }
-.session_type{
+
+.session_type {
     font-weight: medium;
     font-size: 18px;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     margin-right: 10px;
 }
-.main{
+
+main {
     padding: 10px 500px;
 }
-body .timer{
+
+body .timer {
     background-color: rgba(255, 255, 255, 0.1);
 }
-#start{
+
+#start {
     border-color: white;
     background-color: white;
     color: green;
     width: 150px;
-    padding:15px;
+    padding: 15px;
     border-radius: 1px;
     margin-left: 175px;
     margin-bottom: 25px;
-    font-size: 20px
+    font-size: 20px;
+    font-weight: bold;
 }
-#time{
+
+#time {
     margin-left: 125px;
     font-size: 100px;
 }
-#settings{
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    font-size: medium
-}
-dialog span{
+
+dialog span {
     color: black;
 }
-#settings-close{
+
+#settings-close {
     color: black;
     margin-left: 265px;
     margin-top: 0.1px;
 }
-label{
+
+label {
     color: gray;
 }
-td input{
+
+td input {
     color: black;
 }
-#session-message{
+
+#session-message {
     margin-left: 675px;
-    font-size: large;
+    font-size: medium;
 }
-img{
+
+img {
     width: 15px;
     height: 15px;
     align-self: center;
