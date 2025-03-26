@@ -16,35 +16,38 @@
         </header>
 
         <dialog id="settings-dialog">
-            <div><button id="settings-close" class="icon-button"><img src="./close-button.jpg"
-                        alt="close settings"></button></div>
-            <span>Timer(in min.)</span>
-            <table>
-                <tr>
-                    <td><label for="pomodoro-length">Pomodoro</label></td>
-                    <td><input type="number" id="pomodoro-length" value="25"></td>
-                </tr>
-                <tr>
-                    <td><label for="short-break-length">Short Break</label></td>
-                    <td><input type="number" id="short-break-length" value="5"></td>
-                </tr>
-                <tr>
-                    <td><label for="long-break-length">Long Break</label></td>
-                    <td><input type="number" id="long-break-length" value="15"></td>
-                </tr>
-                <tr>
-                    <td><label for="long-break-count">Long Break Interval</label></td>
-                    <td><input type="number" id="long-break-count" value="5"></td>
-                </tr>
-                <tr>
-                    <td><label for="auto-start-break">Auto Start Break</label></td>
-                    <td><input type="checkbox" id="auto-start-break"></td>
-                </tr>
-                <tr>
-                    <td><label for="auto-start-pomodoro">Auto Start Pomodoro</label></td>
-                    <td><input type="checkbox" id="auto-start-pomodoro"></td>
-                </tr>
-            </table>
+            <div id="settings-wrapper">
+                <div><button id="settings-close" class="icon-button"><img src="./close-button.jpg"
+                            alt="close settings"></button></div>
+                <span>Timer(in min.)</span>
+                <table>
+                    <tr>
+                        <td><label for="pomodoro-length">Pomodoro</label></td>
+                        <td><input type="number" id="pomodoro-length" value="25"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="short-break-length">Short Break</label></td>
+                        <td><input type="number" id="short-break-length" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="long-break-length">Long Break</label></td>
+                        <td><input type="number" id="long-break-length" value="15"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="long-break-count">Long Break Interval</label></td>
+                        <td><input type="number" id="long-break-count" value="5"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="auto-start-break">Auto Start Break</label></td>
+                        <td><input type="checkbox" id="auto-start-break"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="auto-start-pomodoro">Auto Start Pomodoro</label></td>
+                        <td><input type="checkbox" id="auto-start-pomodoro"></td>
+                    </tr>
+                </table>
+            </div>
+
         </dialog>
         <hr>
         <div class="timer">
@@ -56,7 +59,7 @@
                 <button type="type" class="session_type" id="long-break-session" name="session_buttons">Long
                     Break</button>
             </div>
-            <span id="time">69:00</span>
+            <span id="time">25:00</span>
             <button type="button" id="start">START</button>
         </div>
     </main>
@@ -64,8 +67,8 @@
         <h2 id="session-message">Time to focus!</h2>
     </div>
     <script src="settings.js"></script>
-    <script src="timer.js"></script>
     <script src="sessions.js"></script>
+    <script src="timer.js"></script>
 </body>
 
 </html>

@@ -88,3 +88,7 @@ img {
     height: 15px;
     align-self: center;
 }
+
+dialog::backdrop {
+    backdrop-filter: blur(1px);
+}
