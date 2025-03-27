@@ -1,3 +1,5 @@
+document.getElementById("pomodoro-session").style.boxShadow = "5px 2.5px 2.5px black";
+
 document.getElementById("pomodoro-session").addEventListener("click", () => template_session("#3A5BDC", "Time to focus!", ["5px 2.5px 2.5px black", "", ""], setPomodoroTime));
 document.getElementById("short-break-session").addEventListener("click", () => template_session("#2A9D8F", "Time for a break!", ["", "5px 2.5px 2.5px black", ""], setShortBreakTime));
 document.getElementById("long-break-session").addEventListener("click", () => template_session("#A37ACE", "Extended break time!", ["", "", "5px 2.5px 2.5px black"], setLongBreakTime));

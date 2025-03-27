@@ -1,5 +1,6 @@
 document.getElementById("start").addEventListener("click", count_down, { once: true });
 var pomodoro_session_count = 0;
+document.getElementById("time").innerText = `${localStorage.getItem("workTime")}:00`
 function count_down() {
     document.getElementById("start").style.boxShadow = "";
     document.getElementById("start").innerText = "PAUSE";
@@ -18,7 +19,7 @@ function count_down() {
         if (minutes_duration == 0 && seconds_duration == 0) {
             if (document.getElementById("session-message").innerText == "Time to focus!") {
                 pomodoro_session_count++
-                if (document.getElementById("long-break-count").value > pomodoro_session_count) {
+                if (localStorage.getItem('workCount') > pomodoro_session_count) {
                     document.getElementById("short-break-session").click();
                     auto_start_break_checker()
                     return clearInterval(interval)

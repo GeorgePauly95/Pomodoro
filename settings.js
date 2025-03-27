@@ -17,32 +17,30 @@ function closeSettingsDialog() {
 
 document.getElementById("pomodoro-length").addEventListener("input", setPomodoroTime);
 function setPomodoroTime() {
-    const pomodoro_time = document.getElementById("pomodoro-length").value;
-    // document.getElementById("pomodoro-session").click();
-    // document.getElementById("time").innerText = `${pomodoro_time}:00`;
-    console.log(`this is pomodoro value typed into input: ${pomodoro_time}`)
+    localStorage.setItem('workTime', `${document.getElementById("pomodoro-length").value}`);
     if (document.getElementById("session-message").innerText == "Time to focus!") {
-        document.getElementById("time").innerText = `${pomodoro_time}:00`;
+        document.getElementById("time").innerText = `${localStorage.getItem('workTime')}:00`;
     }
-
 }
 
 document.getElementById("short-break-length").addEventListener("input", setShortBreakTime);
 function setShortBreakTime() {
-    const short_break_time = document.getElementById("short-break-length").value;
-    // document.getElementById("short-break-session").click();
-    // document.getElementById("time").innerText = `${short_break_time}:00`;
+    localStorage.setItem('shortBreakTime', `${document.getElementById("short-break-length").value}`);
     if (document.getElementById("session-message").innerText == "Time for a break!") {
-        document.getElementById("time").innerText = `${short_break_time}:00`;
+        document.getElementById("time").innerText = `${localStorage.getItem('shortBreakTime')}:00`;
     }
 }
 
 document.getElementById("long-break-length").addEventListener("input", setLongBreakTime);
 function setLongBreakTime() {
-    const long_break_time = document.getElementById("long-break-length").value;
-    // document.getElementById("long-break-session").click();
-    // document.getElementById("time").innerText = `${long_break_time}:00`;
+    localStorage.setItem('longBreakTime', `${document.getElementById("long-break-length").value}`);
     if (document.getElementById("session-message").innerText == "Extended break time!") {
-        document.getElementById("time").innerText = `${long_break_time}:00`;
+        document.getElementById("time").innerText = `${localStorage.getItem('longBreakTime')}:00`;
     }
 }
+document.getElementById("long-break-count").addEventListener("input", setLongBreakCount);
+function setLongBreakCount() {
+    localStorage.setItem('workCount', `${document.getElementById("long-break-count").value}`);
+}
+
+document.getElementById("auto-start-break").addEventListener("input")
