@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time to focus!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Process focus</h1>
+            <button type="button" id="settings">Settings</button>
+        </header>
+
+        <dialog id="settings-dialog">
+            <div id="settings-wrapper">
+                <div><button id="settings-close" class="icon-button"><img src="/static/close-button.jpg"
+                            alt="close settings"></button></div>
+                <span>Timer(in min.)</span>
+                <table>
+                    <tr>
+                        <td><label for="pomodoro-length">Pomodoro</label></td>
+                        <td><input type="number" id="pomodoro-length" value="30" max="1440" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="short-break-length">Short Break</label></td>
+                        <td><input type="number" id="short-break-length" value="5" max="1440" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="long-break-length">Long Break</label></td>
+                        <td><input type="number" id="long-break-length" value="15" max="1440" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="long-break-count">Long Break Interval</label></td>
+                        <td><input type="number" id="long-break-count" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="auto-start-break">Auto Start Break</label></td>
+                        <td><input type="checkbox" id="auto-start-break"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="auto-start-pomodoro">Auto Start Pomodoro</label></td>
+                        <td><input type="checkbox" id="auto-start-pomodoro"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </dialog>
+        <hr>
+        <div class="timer">
+            <div class="session">
+                <button type="type" class="session_type" id="pomodoro-session" name="session_buttons"
+                    checked>Pomodoro</button>
+                <button type="type" class="session_type" id="short-break-session" name="session_buttons">Short
+                    Break</button>
+                <button type="type" class="session_type" id="long-break-session" name="session_buttons">Long
+                    Break</button>
+            </div>
+            <span id="time">25:00</span>
+            <button type="button" id="start">START</button>
+        </div>
+    </main>
+    <div>
+        <h2 id="session-message">Time to focus!</h2>
+    </div>
+    <script src="{{url_for('static', filename='storage.js')}}"></script>
+    <script src="{{url_for('static', filename='settings.js')}}"></script>
+    <script src="{{url_for('static', filename='sessions.js')}}"></script>
+    <script src="{{url_for('static', filename='timer.js')}}"></script>
+</body>
+
+</html>

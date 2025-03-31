@@ -1,0 +1,94 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+body {
+    background-color: #3A5BDC;
+}
+
+h1 {
+    font-size: medium;
+    display: inline-block;
+}
+
+#settings {
+    font-size: medium;
+    display: inline-block;
+    margin-left: 320px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.session {
+    padding: 10px 10px 25px 100px;
+}
+
+.session_type {
+    font-weight: medium;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    margin-right: 10px;
+}
+
+main {
+    padding: 10px 500px;
+}
+
+body .timer {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#start {
+    border-color: white;
+    background-color: white;
+    color: green;
+    width: 150px;
+    padding: 15px;
+    border-radius: 1px;
+    margin-left: 175px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#time {
+    margin-left: 125px;
+    font-size: 100px;
+}
+
+dialog span {
+    color: black;
+}
+
+#settings-close {
+    color: black;
+    margin-left: 265px;
+    margin-top: 0.1px;
+}
+
+label {
+    color: gray;
+}
+
+td input {
+    color: black;
+}
+
+#session-message {
+    margin-left: 675px;
+    font-size: medium;
+}
+
+img {
+    width: 15px;
+    height: 15px;
+    align-self: center;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(1px);
+}
