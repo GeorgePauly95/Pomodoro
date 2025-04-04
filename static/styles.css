@@ -58,6 +58,7 @@ body .timer {
 #time {
     margin-left: 125px;
     font-size: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 dialog span {

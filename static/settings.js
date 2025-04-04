@@ -17,28 +17,44 @@ function closeSettingsDialog() {
 
 document.getElementById("pomodoro-length").addEventListener("input", setPomodoroTime);
 function setPomodoroTime() {
-    localStorage.setItem('workTime', `${document.getElementById("pomodoro-length").value}`);
+    fetch('/test1', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ "pomodoro_length": document.getElementById("pomodoro-length").value })
+    }).then(output => { output.json(); });
     if (document.getElementById("session-message").innerText == "Time to focus!") {
-        document.getElementById("time").innerText = `${localStorage.getItem('workTime')}:00`;
+        document.getElementById("time").innerText = `${document.getElementById("pomodoro-length").value}:00`;
     }
 }
 
 document.getElementById("short-break-length").addEventListener("input", setShortBreakTime);
 function setShortBreakTime() {
-    localStorage.setItem('shortBreakTime', `${document.getElementById("short-break-length").value}`);
+    fetch('/test2', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'short_break_length': document.getElementById("short-break-length").value })
+    }).then(output => { output.json(); });
     if (document.getElementById("session-message").innerText == "Time for a break!") {
-        document.getElementById("time").innerText = `${localStorage.getItem('shortBreakTime')}:00`;
+        document.getElementById("time").innerText = `${document.getElementById("short-break-length").value}:00`;
     }
 }
 
 document.getElementById("long-break-length").addEventListener("input", setLongBreakTime);
 function setLongBreakTime() {
-    localStorage.setItem('longBreakTime', `${document.getElementById("long-break-length").value}`);
+    fetch('/test3', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'long_break_length': document.getElementById("long-break-length").value })
+    }).then(output => { output.json(); });
     if (document.getElementById("session-message").innerText == "Extended break time!") {
-        document.getElementById("time").innerText = `${localStorage.getItem('longBreakTime')}:00`;
+        document.getElementById("time").innerText = `${document.getElementById("long-break-length").value}:00`;
     }
 }
 document.getElementById("long-break-count").addEventListener("input", setLongBreakCount);
 function setLongBreakCount() {
-    localStorage.setItem('workCount', `${document.getElementById("long-break-count").value}`);
+    fetch('/test4', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'long_break_count': document.getElementById("long-break-count").value })
+    }).then(output => { output.json(); });
 } 
