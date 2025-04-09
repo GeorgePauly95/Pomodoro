@@ -20,19 +20,19 @@ function count_down() {
                 pomodoro_session_count++
                 if (document.getElementById("long-break-count").value > pomodoro_session_count) {
                     document.getElementById("short-break-session").click();
-                    auto_start_break_checker()
+                    start_break_checker()
                     return clearInterval(interval)
                 }
                 else {
                     pomodoro_session_count = 0
                     document.getElementById("long-break-session").click();
-                    auto_start_break_checker()
+                    start_break_checker()
                     return clearInterval(interval)
                 }
             }
             else if (document.getElementById("session-message").innerText == "Time for a break!" || document.getElementById("session-message").innerText == "Extended break time!") {
                 document.getElementById("pomodoro-session").click();
-                auto_start_pomodoro_checker()
+                start_pomodoro_checker()
                 return clearInterval(interval)
             }
         }
@@ -50,13 +50,13 @@ function count_down() {
         document.getElementById("time").innerText = `${minutes_duration}:${seconds_duration}`;
         document.getElementsByTagName("title")[0].innerText = `${minutes_duration}:${seconds_duration} - ${document.getElementById("session-message").innerText}`;
     }
-    function auto_start_break_checker() {
-        if (document.getElementById("auto-start-break").checked == true) {
+    function start_break_checker() {
+        if (document.getElementById("start-break").checked == true) {
             document.getElementById("start").click()
         }
     }
-    function auto_start_pomodoro_checker() {
-        if (document.getElementById("auto-start-pomodoro").checked == true) {
+    function start_pomodoro_checker() {
+        if (document.getElementById("start-pomodoro").checked == true) {
             document.getElementById("start").click()
         }
     }
