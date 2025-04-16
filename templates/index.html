@@ -9,21 +9,30 @@
 </head>
 
 <body>
+    <h1>Process Focus</h1>
+    <div id="task-heading">General</div>
     <main>
         <header>
-            <h1>Process focus</h1>
+            <h2>Pomodoro Timer</h2>
+
             <button type="button" id="settings">Settings</button>
         </header>
 
         <dialog id="settings-dialog">
             <div id="settings-wrapper">
-                <div><button id="settings-close" class="icon-button"><img src="/static/close-button.jpg"
-                            alt="close settings"></button></div>
-                <span>Timer(in min.)</span>
+
+                <div class="dialog-top"><b><span>Timer(in min.)</span></b>
+                    <button id="settings-close" class="icon-button"><img src="/static/close-button.jpg"
+                            alt="close settings"></button>
+                </div>
                 <table>
                     <tr>
+                        <td><label for="task-name">Task/Activity</label></td>
+                        <td><input type="text" id="task-name" value="General"></td>
+                    </tr>
+                    <tr>
                         <td><label for="pomodoro-length">Pomodoro</label></td>
-                        <td><input type="number" id="pomodoro-length" value="30" max="1440" min="0"></td>
+                        <td><input type="number" id="pomodoro-length" value="25" max="1440" min="0"></td>
                     </tr>
                     <tr>
                         <td><label for="short-break-length">Short Break</label></td>
@@ -35,7 +44,7 @@
                     </tr>
                     <tr>
                         <td><label for="long-break-count">Long Break Interval</label></td>
-                        <td><input type="number" id="long-break-count" value="4"></td>
+                        <td><input type="number" id="long-break-count" value="4" max="1440" min="0"></td>
                     </tr>
                     <tr>
                         <td><label for="start-break">Auto Start Break</label></td>
@@ -46,6 +55,7 @@
                         <td><input type="checkbox" id="start-pomodoro"></td>
                     </tr>
                 </table>
+                <button id="save-task-settings">Save Task Settings</button>
             </div>
 
         </dialog>
@@ -66,10 +76,20 @@
     <div>
         <h2 id="session-message">Time to focus!</h2>
     </div>
+    <div class="task-manager">
+        Task Manager
+    </div>
+    <button id="add-task">
+        + Add a Task
+    </button>
+
     <script src="../static/storage.js"></script>
     <script src="../static/settings.js"></script>
     <script src="../static/sessions.js"></script>
     <script src="../static/timer.js"></script>
+    <script src="../static/add-save-tasks.js"></script>
+
+
 </body>
 
 </html>

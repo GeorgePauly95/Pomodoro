@@ -7,7 +7,7 @@ body {
     background-color: #3A5BDC;
 }
 
-h1 {
+h2 {
     font-size: medium;
     display: inline-block;
 }
@@ -15,11 +15,12 @@ h1 {
 #settings {
     font-size: medium;
     display: inline-block;
-    margin-left: 320px;
+    margin-left: 300px;
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     font-size: medium;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .session {
@@ -35,11 +36,14 @@ h1 {
 }
 
 main {
-    padding: 10px 500px;
+    margin-left: 500px;
+    margin-right: 500px;
+    display: inline-block;
 }
 
 body .timer {
     background-color: rgba(255, 255, 255, 0.1);
+
 }
 
 #start {
@@ -53,22 +57,34 @@ body .timer {
     margin-bottom: 25px;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #time {
     margin-left: 125px;
+    margin-top: 300px;
     font-size: 100px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.dialog-top {
+    margin-bottom: 20px;
+}
+
 dialog span {
     color: black;
+
 }
 
 #settings-close {
     color: black;
-    margin-left: 265px;
-    margin-top: 0.1px;
+    margin-left: 185px;
+    border-color: darkgray;
+    border-radius: 2px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    cursor: pointer;
+
 }
 
 label {
@@ -77,6 +93,7 @@ label {
 
 td input {
     color: black;
+    margin: 5px;
 }
 
 #session-message {
@@ -92,4 +109,86 @@ img {
 
 dialog::backdrop {
     backdrop-filter: blur(1px);
+}
+
+.task-manager {
+    font-size: medium;
+    margin: 50px 500px 10px 500px;
+    font-weight: bold;
+
+}
+
+#add-task {
+
+    border-style: dashed;
+    border-width: medium;
+    border-color: white;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 500px;
+    font-size: large;
+    text-align: center;
+}
+
+h1 {
+    font-size: large;
+}
+
+#task-heading {
+    margin-left: 700px;
+    font-size: large;
+    border-style: dashed;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-right: 1200px;
+    text-align: center;
+    text-wrap: balance;
+    width: 150px;
+    height: auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+
+}
+
+.task-template {
+
+    border-style: solid;
+    border-width: medium;
+    border-color: white;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 500px;
+    margin-right: 500px;
+    font-size: large;
+}
+
+#save-task-settings {
+    margin-left: 80px;
+    margin-top: 20px;
+    color: black;
+    background-color: darkgray;
+    border-radius: 2px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.task-delete {
+    margin-left: 400px;
+    margin-top: 0.1px;
+    background-color: darkgray;
+    border-color: gray;
+    border-radius: 5px;
+    font-size: smaller;
+    cursor: pointer;
 }
