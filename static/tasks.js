@@ -51,4 +51,29 @@ function createTask() {
   }).then((output) => {
     output.json().then((data) => newTask.setAttribute("id", data));
   });
+
+  newTask.addEventListener("click", selectTask);
+  function selectTask() {
+    const tasks = Array.from(document.getElementsByClassName("task-template"));
+    tasks.forEach(colorSelect);
+
+    function colorSelect(task) {
+      task.style.boxShadow = "";
+      task.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+    }
+    newTask.style.boxShadow = "2.5px 2.5px 2.5px 2.5px black";
+    newTask.style.backgroundColor = "darkgray";
+  }
+  delTask.addEventListener("click", deleteTask);
+
+  function deleteTask() {
+    fetch("/deleteTask", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        task_id: newTask.getAttribute("id"),
+      }),
+    });
+    newTask.remove();
+  }
 }
