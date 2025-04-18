@@ -6,7 +6,7 @@ client = MongoClient()
 db = client["pomodorodb"]
 sessionlengths = db["sessionlengths"]
 
-sessionlengths.update_one({'task_name': "General"},{"$set":{'task_name': "General",
+sessionlengths.update_one({'task_name': "General"},{"$set":{'task_name': "",
     'pomodoro_length': '25',    
     'short_break_length': '5',
     'long_break_length': '15',
@@ -20,14 +20,9 @@ def main_func():
 
 @app.route('/loadTasks')
 def load_tasks():
-    task = sessionlengths.find({}).to_list()
-    task_ids = [{'_id':str(x["_id"]), 'task_name': x['task_name'], 'pomodoro_length':x["pomodoro_length"], 'short_break_length': x['short_break_length'], 'long_break_length': x['long_break_length'], 'long_break_count': x['long_break_count']} for x in task]
-    return jsonify(task_ids)
-
-# @app.route('/loadConfig')
-# def load_config():
-#     print(f"Data from database: {jsonify(sessionlengths.find_one({'task_name': "General"}, {'_id':0}))}")
-#     return sessionlengths.find_one({},{'_id':0})
+    tasks = sessionlengths.find({}).to_list()
+    tasks_ids = [{'_id':str(x["_id"]), 'task_name': x['task_name'], 'pomodoro_length':x["pomodoro_length"], 'short_break_length': x['short_break_length'], 'long_break_length': x['long_break_length'], 'long_break_count': x['long_break_count']} for x in tasks]
+    return jsonify(tasks_ids)
 
 @app.route('/savesettings', methods=['POST'])
 def save_task_settings():
@@ -39,7 +34,6 @@ def save_task_settings():
 @app.route('/deleteTask', methods=["POST"])
 def delete_task():
     output = request.get_json()
-    # print(f"This is the delete Task output {output["task_id"]}")
     sessionlengths.delete_one({'_id':ObjectId(output["task_id"])})
     return "Okay"
 

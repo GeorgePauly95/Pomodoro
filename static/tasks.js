@@ -1,12 +1,7 @@
-document.getElementById("save-task-settings").style.backgroundColor =
-  "darkgray";
+document
+  .getElementById("add-task")
+  .addEventListener("click", showSettingsDialog);
 
-document.getElementById("add-task").addEventListener("click", openTaskSettings);
-function openTaskSettings(event) {
-  event.stopPropagation();
-  document.getElementById("settings").style.boxShadow = "5px 2.5px 2.5px black";
-  dialog.showModal();
-}
 document
   .getElementById("save-task-settings")
   .addEventListener("click", createTask);
@@ -21,23 +16,26 @@ function createTask() {
   taskAttr.value = "task-template";
   newTask.setAttributeNode(taskAttr);
 
+  //delete button
   const delTask = document.createElement("button");
   const delTaskSymbol = document.createTextNode("X");
   const delTaskAttr = document.createAttribute("class");
   delTaskAttr.value = "task-delete";
   delTask.append(delTaskSymbol);
   delTask.setAttributeNode(delTaskAttr);
-
   newTask.appendChild(delTask);
+
+  //add task frontend
   addTask = document.getElementById("add-task");
   document.body.insertBefore(newTask, addTask);
 
-  setTaskName();
-  function setTaskName() {
+  setTaskHeadingName();
+  function setTaskHeadingName() {
     document.getElementById("task-heading").innerText =
       document.getElementById("task-name").value;
   }
 
+  // add task backend and set id attr
   fetch("/savesettings", {
     method: "POST",
     headers: { "Content-type": "application/json" },
@@ -52,20 +50,35 @@ function createTask() {
     output.json().then((data) => newTask.setAttribute("id", data));
   });
 
+  // select task frontend
   newTask.addEventListener("click", selectTask);
   function selectTask() {
     const tasks = Array.from(document.getElementsByClassName("task-template"));
     tasks.forEach(colorSelect);
-
-    function colorSelect(task) {
-      task.style.boxShadow = "";
-      task.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-    }
     newTask.style.boxShadow = "2.5px 2.5px 2.5px 2.5px black";
     newTask.style.backgroundColor = "darkgray";
+    fetch("/loadTasks").then((output) => {
+      output.json().then((data) => data.forEach(loadAddnlTasks));
+    });
+    function loadAddnlTasks(task) {
+      if (task._id == newTask.getAttribute("id")) {
+        document.getElementById("task-heading").innerText = task.task_name;
+        document.getElementById("task-name").value = task.task_name;
+        document.getElementById("pomodoro-length").value = task.pomodoro_length;
+        document.getElementById("short-break-length").value =
+          task.short_break_length;
+        document.getElementById("long-break-length").value =
+          task.long_break_length;
+        document.getElementById("long-break-count").value =
+          task.long_break_count;
+      }
+    }
   }
-  delTask.addEventListener("click", deleteTask);
+  //force click on new task so that it selected task match settings details and task heading
+  newTask.click();
 
+  //delete tasks
+  delTask.addEventListener("click", deleteTask);
   function deleteTask() {
     fetch("/deleteTask", {
       method: "POST",
@@ -74,6 +87,8 @@ function createTask() {
         task_id: newTask.getAttribute("id"),
       }),
     });
+    document.getElementById("task-heading").innerText = "";
+    document.getElementById("task-heading").style.height = "20px";
     newTask.remove();
   }
 }

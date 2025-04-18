@@ -1,23 +1,11 @@
-// fetch("/loadConfig")
-//   .then((output) => output.json())
-//   .then((final_output) => {
-//     document.getElementById("task-name").value = final_output.task_name;
-//     document.getElementById("pomodoro-length").value =
-//       final_output.pomodoro_length;
-//     document.getElementById(
-//       "time"
-//     ).innerText = `${final_output.pomodoro_length}:00`;
-//     document.getElementById("short-break-length").value =
-//       final_output.short_break_length;
-//     document.getElementById("long-break-length").value =
-//       final_output.long_break_length;
-//     document.getElementById("long-break-count").value =
-//       final_output.long_break_count;
-//   });
-
 fetch("/loadTasks").then((output) => {
   output.json().then((data) => data.forEach(loadTasks));
 });
+
+function colorSelect(task) {
+  task.style.boxShadow = "";
+  task.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+}
 
 function loadTasks(task) {
   const newTask = document.createElement("div");
@@ -41,14 +29,10 @@ function loadTasks(task) {
   document.body.insertBefore(newTask, addTask);
 
   newTask.addEventListener("click", selectTask);
+
   function selectTask() {
     const tasks = Array.from(document.getElementsByClassName("task-template"));
     tasks.forEach(colorSelect);
-
-    function colorSelect(task) {
-      task.style.boxShadow = "";
-      task.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-    }
 
     newTask.style.boxShadow = "2.5px 2.5px 2.5px 2.5px black";
     newTask.style.backgroundColor = "darkgray";
@@ -70,6 +54,8 @@ function loadTasks(task) {
         task_id: newTask.getAttribute("id"),
       }),
     });
+    document.getElementById("task-heading").innerText = "";
+    document.getElementById("task-heading").style.height = "20px";
     newTask.remove();
   }
 }
